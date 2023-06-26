@@ -1,7 +1,13 @@
 
+.login-container-position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+}
 
 .login-container {
-    height: 100vh;
+    /* height: 100vh; */
     margin: auto;
     max-width: 935px;
 }
@@ -135,8 +141,18 @@
 /**
  * Login with fb section
  */
+ .login-container .login-with-fb{
+    cursor: pointer;
+ }
+ .login-container .login-with-fb .icon{
+    font-size: 25px;
+ }
  .login-container .login-with-fb a { 
     color: #385185; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .login-container .login-with-fb > a { font-size: 12px; }
@@ -150,6 +166,8 @@
  .login-container .register a { 
     color: #0095f6;
     font-weight: bold;
+    cursor: pointer;
+    display: flex;
 }
 
 .login-container .register p { margin-right: 5px; }
@@ -191,4 +209,5 @@
     .login-container  { margin: 30px auto 50px auto; }
     .login-container footer .copyright,
     .login-containerfooter ul li a { font-size: 13px; }
+    .login-container-position{ padding: 0}
 }
