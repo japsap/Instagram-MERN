@@ -86,8 +86,8 @@ const Login = ({ user }) => {
         setSpinner(true);
 
         setTimeout(() => {
-          window.location.href = `/${user.username}`;
-          setSpinner(false);
+           setSpinner(false);
+           window.location.href = `/`
         }, 4000);
       }
     });
@@ -102,8 +102,6 @@ const Login = ({ user }) => {
             <h1 title="Instagram" className="flex justify-content-center">
               <img
                 src={instagramLogo}
-                alt="Instagram logo"
-                title="Instagram logo"
               />
             </h1>
             {hasAccount ? (

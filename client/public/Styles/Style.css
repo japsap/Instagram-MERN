@@ -1,6 +1,7 @@
 @import './LoginPanel.css';
 @import './Sidebar.css';
 @import './UserProfile.css';
+@import './UserFeed.css';
 
 *{
     padding: 0;

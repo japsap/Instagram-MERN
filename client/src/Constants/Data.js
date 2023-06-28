@@ -101,5 +101,43 @@ export const Data = {
       name: "Tagged",
       icon: <PiUserRectangleLight/>,
     }
+  ],
+  stories: [
+    {
+      name: "caressmil2001",
+      active: true,
+    }
+    ,{
+      name: "deal_cereal",
+      active: true,
+    },
+    {
+      name: "drugmylife",
+      active: true,
+    },
+    {
+      name: "fake_guy",
+      active: true,
+    },
+    {
+      name: "famous_guy",
+      active: false,
+    },
+    {
+      name: "singletomorrow",
+      active: false,
+    },
+    {
+      name: "hunk",
+      active: false,
+    },
+    {
+      name: "macho_moron",
+      active: false,
+    },
+    {
+      name: "unused_guy",
+      active: false,
+    },
   ]
 };

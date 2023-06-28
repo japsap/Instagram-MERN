@@ -1,0 +1,50 @@
+.user-feed-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+
+.user-feed-inner{
+    width: 1050px;
+    margin-left: 300px;
+}
+
+.user-feed-inner .posts-and-recommended{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+    height: 50vh;
+}
+
+.user-feed-inner .posts-and-recommended .posts-contanier{
+    width: 65%;
+}
+
+.user-feed-inner .posts-and-recommended  .recommended-stories{
+    width: 35%;
+
+}
+
+@media screen and (max-width:768px){
+    .user-feed-inner{
+        margin-left: 20px;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width:1264px) {
+    .user-feed-inner{
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width:1264px){
+    .recommended-stories{
+        display: none;
+    }
+    .user-feed-inner .posts-and-recommended .posts-contanier{
+        width: 50%;
+    }
+}
