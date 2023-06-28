@@ -140,7 +140,7 @@
         height: auto;
     }
 }
-@media screen and (min-width:768px) and (max-width:1264px) {
+@media screen and (min-width:769px) and (max-width:1264px) {
     .userProfile__inner{
         margin-left: 100px;
     }
