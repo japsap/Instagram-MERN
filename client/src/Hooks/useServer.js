@@ -5,8 +5,9 @@ const login = 'http://localhost:5000/login'
 const useServer = () => {
 
     const headers = {
-
-    }
+        Accept: "application/json",
+        "Content-type": "application/json",
+      };
 
     const registerUser = (username, email, password, repeatPassword) => {
         return fetch(register, {

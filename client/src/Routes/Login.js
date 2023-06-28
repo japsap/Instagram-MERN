@@ -12,7 +12,7 @@ const Login = () => {
 
   const { registerUser, loginUser } = useServer();
 
-  const [hasAccount, setHasAccount] = useState(false);
+  const [hasAccount, setHasAccount] = useState(true);
 
   const [data, setData] = useState({
     username: "",
@@ -82,6 +82,7 @@ const Login = () => {
                   required
                   name="username"
                   placeholder="Username"
+                  type='text'
                   onChange={handleChange}
                 />
                 <label htmlFor="email" className="sr-only">

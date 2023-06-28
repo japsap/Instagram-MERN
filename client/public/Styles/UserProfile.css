@@ -1,13 +1,13 @@
 .userProfile__container{
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 
 .userProfile__inner{
-    margin-left: 400px;
-    width: 900px;
+    margin-left: 300px;
+    width: 1000px;
     padding: 10px;
 }
 
