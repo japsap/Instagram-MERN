@@ -26,9 +26,18 @@ const useServer = () => {
     }
 
 
+    const getToken = () => {
+        return fetch(login, {
+          headers: {
+            auth: localStorage.getItem("authToken"),
+          },
+        }).then((res) => res.json());
+      };
+
     return {
         registerUser,
-        loginUser
+        loginUser,
+        getToken
     }
 }
 

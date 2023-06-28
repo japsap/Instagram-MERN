@@ -6,13 +6,17 @@ import instagramLogo from "../Assets/Images/instagram-logo.png";
 
 import { AiFillFacebook } from "react-icons/ai";
 
-import useServer from '../Hooks/useServer';
+import useServer from "../Hooks/useServer";
+import Spinner from "../Components/Spinner/Spinner";
 
-const Login = () => {
-
+const Login = ({ user }) => {
   const { registerUser, loginUser } = useServer();
 
+  const [spinner, setSpinner] = useState(false);
+
   const [hasAccount, setHasAccount] = useState(true);
+
+  const [error, setError] = useState("");
 
   const [data, setData] = useState({
     username: "",
@@ -21,8 +25,7 @@ const Login = () => {
     repeatPassword: "",
   });
 
-  let emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)
-
+  let emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
 
   if (!hasAccount) {
     delete data.username;
@@ -35,29 +38,60 @@ const Login = () => {
       [name]: value,
     }));
   };
-  
-
 
   const useRegisterAccount = (e) => {
     e.preventDefault();
 
-    if(!emailRegex.test(data.email)){
-      return alert('Incorect Email');
+    if (!emailRegex.test(data.email)) {
+      return setError("Incorect Email");
     }
 
-    registerUser(data.username, data.email, data.password, data.repeatPassword);
-  };
+    registerUser(
+      data.username,
+      data.email,
+      data.password,
+      data.repeatPassword,
+    ).then((res) => {
+      if (res.status == 400) {
+        setError(res.message);
 
+        setTimeout(() => {
+          setError("");
+        }, 3000);
+      } else if (res.status == 201) {
+        setHasAccount((prev) => !prev);
+        alert("Account Created Successfully");
+        setError("");
+      }
+    });
+  };
 
   const loginAccount = (e) => {
     e.preventDefault();
 
-    if(!emailRegex.test(data.email)){
-      return alert('Incorect Email');
+    if (!emailRegex.test(data.email)) {
+      return alert("Incorect Email");
     }
 
-    loginUser(data.email, data.password, data.repeatPassword);
-  }
+    loginUser(data.email, data.password, data.repeatPassword).then((res) => {
+      if (res.status == 400) {
+        setError(res.message);
+
+        setTimeout(() => {
+          setError("");
+        }, 3000);
+      } else if (res.status == 201) {
+        localStorage.setItem("authToken", res.token);
+
+        setSpinner(true);
+
+        setTimeout(() => {
+          window.location.href = `/${user.username}`;
+          setSpinner(false);
+        }, 4000);
+      }
+    });
+  };
 
   return (
     <div className="login-container-position">
@@ -82,7 +116,7 @@ const Login = () => {
                   required
                   name="username"
                   placeholder="Username"
-                  type='text'
+                  type="text"
                   onChange={handleChange}
                 />
                 <label htmlFor="email" className="sr-only">
@@ -115,7 +149,8 @@ const Login = () => {
                   onChange={handleChange}
                 />
 
-                 {/* sign in form */}
+                {/* sign in form */}
+                {error && <p>{error}</p>}
 
                 <button type="submit">Sign in</button>
               </form>
@@ -135,7 +170,7 @@ const Login = () => {
                   Password
                 </label>
                 <input
-                  required  
+                  required
                   name="password"
                   type="password"
                   placeholder="Password"
@@ -152,8 +187,10 @@ const Login = () => {
                   placeholder="Repeat password"
                   onChange={handleChange}
                 />
+                {error && <p>{error}</p>}
 
-                <button type="submit">Log in</button>
+                {spinner ? <Spinner /> : <button type="submit">Log in</button>}
+
                 {/* login form*/}
               </form>
             )}
