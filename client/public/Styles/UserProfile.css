@@ -1,16 +1,15 @@
 .userProfile__container{
-    height: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
     padding-top: 50px;
 }
+
+
 .userProfile__inner{
     margin-left: 400px;
     width: 900px;
     padding: 10px;
 }
-
 
 .userProfile__data{
     display: flex;
