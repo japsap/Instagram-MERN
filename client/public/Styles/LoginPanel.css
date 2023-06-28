@@ -4,12 +4,16 @@
     justify-content: center;
     align-items: center;
     padding: 100px 0;
+    position: relative;
+    z-index: 100;
+    background-color: var(--mainBgColor);
 }
 
 .login-container {
-    /* height: 100vh; */
     margin: auto;
     max-width: 935px;
+    z-index: 10;
+    position: relative;
 }
 
 
